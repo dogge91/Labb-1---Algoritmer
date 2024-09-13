@@ -3,7 +3,7 @@ string input = Console.ReadLine();
 Console.Clear();
 
 string printFirstPart = string.Empty;
-string connectEqualNumbers = string.Empty;
+string findEqualNumbers = string.Empty;
 string printRemainingPart = string.Empty;   
 
 ulong sumOfNumbers = 0;
@@ -15,12 +15,12 @@ for (int i = 0; i < input.Length; i++)
     {
         if (!char.IsDigit(input[j]))
         {
-            connectEqualNumbers = string.Empty;
+            findEqualNumbers = string.Empty;
             break;
         }
-        connectEqualNumbers += input[j];
+        findEqualNumbers += input[j];
 
-        if (input[j] == connectEqualNumbers[0] && j != i)
+        if (input[j] == findEqualNumbers[0] && j != i)
         {
 
             printRemainingPart = input.Substring(j + 1);
@@ -28,21 +28,21 @@ for (int i = 0; i < input.Length; i++)
             Console.Write(printFirstPart);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(connectEqualNumbers);
-            sumOfNumbers += ulong.Parse(connectEqualNumbers);
+            Console.Write(findEqualNumbers);
+            sumOfNumbers += ulong.Parse(findEqualNumbers);
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write(printRemainingPart);
             Console.ResetColor();
             Console.WriteLine();
-            connectEqualNumbers = string.Empty;
+            findEqualNumbers = string.Empty;
             break;
         }
 
     }
 
     printFirstPart += input[i];
-    connectEqualNumbers = string.Empty;
+    findEqualNumbers = string.Empty;
 
 }
 Console.WriteLine("*****************************");
